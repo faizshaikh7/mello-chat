@@ -1,6 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
+import 'package:mello_chat/screens/auth/auth_screen.dart';
+import 'package:mello_chat/screens/home.dart';
 import 'package:mello_chat/utils/colors.dart';
 // import 'package:mello_chat/screens/onboard/onboard_screen_data.dart';
 
@@ -12,6 +12,12 @@ class OnboardScreen extends StatefulWidget {
 class _OnboardScreenState extends State<OnboardScreen> {
   int slideIndex = 0;
   late PageController controller;
+
+  List<String> desc = [
+    "All your conversations and file's are securely stored in the cloud, which means you can access them from any device, anytime, anywhere.",
+    "Stay connected with your loved ones no matter where you are in the world. You can even make group calls with up to 10 people at once.",
+    "We prioritize your privacy and safety. Ensuring only you and the recipient can read your messages. so you can chat with peace"
+  ];
 
   Widget _buildPageIndicator(bool isCurrentPage) {
     return Container(
@@ -36,11 +42,7 @@ class _OnboardScreenState extends State<OnboardScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    List<String> desc = [
-      "All your conversations and file's are securely stored in the cloud, which means you can access them from any device, anytime, anywhere.",
-      "Stay connected with your loved ones no matter where you are in the world. You can even make group calls with up to 10 people at once.",
-      "We prioritize your privacy and safety. Ensuring only you and the recipient can read your messages. so you can chat with peace"
-    ];
+
     return Scaffold(
         backgroundColor: backgroundColor,
         body: SafeArea(
@@ -156,6 +158,13 @@ class _OnboardScreenState extends State<OnboardScreen> {
                           }
                         : () {
                             print("Get Started Now");
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const AuthenticationScreen(),
+                              ),
+                            );
                           },
                     // splashColor: Colors.blue[50],
                     child: Text(slideIndex != 2 ? "Next" : "Continue"),
