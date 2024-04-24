@@ -1,7 +1,7 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:mello_chat/widgets/custom_textfield.dart';
+import 'package:mello_chat/screens/auth/verification_screen.dart';
 
 class AuthenticationScreen extends StatefulWidget {
   const AuthenticationScreen({super.key});
@@ -58,7 +58,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                 height: size.height * 00.07,
               ),
               Container(
-                height: size.height / 1.561,
+                // height: size.height / 1.561,
                 width: double.maxFinite,
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: const BoxDecoration(
@@ -206,6 +206,35 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                       ),
                     ),
                     SizedBox(
+                      height: size.height * 0.015,
+                    ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue.shade700,
+                          elevation: 0,
+                          minimumSize: const Size(double.infinity, 55),
+                          shape: const StadiumBorder()),
+                      onPressed: () {},
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.facebook,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Text(
+                            "Facebook",
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
                       height: size.height * 0.18,
                     ),
                     Align(
@@ -215,8 +244,18 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                               elevation: 0,
                               minimumSize: const Size(120, 50),
                               shape: const StadiumBorder()),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) =>
+                                      const VerificationScreen(),
+                                ));
+                          },
                           child: const Text("Continue")),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.016,
                     ),
                   ],
                 ),
