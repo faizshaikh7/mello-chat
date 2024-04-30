@@ -1,6 +1,7 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:mello_chat/screens/auth/auth_screen.dart';
-import 'package:mello_chat/screens/home.dart';
 import 'package:mello_chat/utils/colors.dart';
 // import 'package:mello_chat/screens/onboard/onboard_screen_data.dart';
 

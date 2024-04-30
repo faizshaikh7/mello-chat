@@ -55,7 +55,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                 ),
               ),
               SizedBox(
-                height: size.height * 00.07,
+                height: size.height * 00.0787,
               ),
               Container(
                 // height: size.height / 1.561,
@@ -89,6 +89,7 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                       child: TextField(
                         style: const TextStyle(color: Colors.grey),
                         // controller: widget.controller,
+                        keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           prefixIcon: Padding(
                             padding: const EdgeInsets.only(
@@ -179,60 +180,72 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                     SizedBox(
                       height: size.height * 0.04,
                     ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey.shade50,
-                          elevation: 0,
-                          minimumSize: const Size(double.infinity, 55),
-                          shape: const StadiumBorder()),
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            FontAwesomeIcons.google,
-                            color: Colors.blue.shade400,
-                            size: 20,
+                    // TODO: FIX THIS HECKKY WAY ROW CODE
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.grey.shade50,
+                              elevation: 0,
+                              minimumSize: const Size(double.infinity, 55),
+                              shape: const StadiumBorder(),
+                            ),
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  FontAwesomeIcons.google,
+                                  color: Colors.blue.shade400,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Text(
+                                  "Google",
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 16),
+                                ),
+                              ],
+                            ),
                           ),
-                          const SizedBox(
-                            width: 10,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue.shade700,
+                                elevation: 0,
+                                minimumSize: const Size(double.infinity, 55),
+                                shape: const StadiumBorder()),
+                            onPressed: () {},
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  FontAwesomeIcons.facebook,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                                const SizedBox(
+                                  width: 10,
+                                ),
+                                const Text(
+                                  "Facebook",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 16),
+                                ),
+                              ],
+                            ),
                           ),
-                          const Text(
-                            "Google",
-                            style: TextStyle(color: Colors.black, fontSize: 16),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: size.height * 0.015,
-                    ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue.shade700,
-                          elevation: 0,
-                          minimumSize: const Size(double.infinity, 55),
-                          shape: const StadiumBorder()),
-                      onPressed: () {},
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            FontAwesomeIcons.facebook,
-                            color: Colors.white,
-                            size: 20,
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          const Text(
-                            "Facebook",
-                            style: TextStyle(color: Colors.white, fontSize: 16),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: size.height * 0.18,

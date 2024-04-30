@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mello_chat/screens/setup_profile.dart';
+import 'package:mello_chat/screens/auth/signup_one_screen.dart';
 
 class VerificationScreen extends StatefulWidget {
   const VerificationScreen({super.key});
@@ -12,13 +12,14 @@ class _VerificationScreenState extends State<VerificationScreen> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final phoneNumber = "+91-96531-00000";
 
-    TextEditingController controller1 = TextEditingController();
-    TextEditingController controller2 = TextEditingController();
-    TextEditingController controller3 = TextEditingController();
-    TextEditingController controller4 = TextEditingController();
-    TextEditingController controller5 = TextEditingController();
-    TextEditingController controller6 = TextEditingController();
+    final TextEditingController controller1 = TextEditingController();
+    final TextEditingController controller2 = TextEditingController();
+    final TextEditingController controller3 = TextEditingController();
+    final TextEditingController controller4 = TextEditingController();
+    final TextEditingController controller5 = TextEditingController();
+    final TextEditingController controller6 = TextEditingController();
 
     return Scaffold(
       body: SafeArea(
@@ -45,7 +46,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                       ),
                     ),
                     SizedBox(
-                      height: size.height * 0.04,
+                      height: size.height * 0.0437,
                     ),
                     Container(
                       height: 150,
@@ -85,8 +86,8 @@ class _VerificationScreenState extends State<VerificationScreen> {
                     SizedBox(
                       height: size.height * 00.03,
                     ),
-                    const Text(
-                      "Enter 6 Digit code we sent to +91-96531-795234",
+                    Text(
+                      "Enter 6 Digit code we sent to $phoneNumber",
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
@@ -145,7 +146,7 @@ class _VerificationScreenState extends State<VerificationScreen> {
                           shape: const StadiumBorder()),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => SetupProfile(),
+                          builder: (context) => const SignupOneScreen(),
                         ));
                       },
                       child: const Text("Continue"),
@@ -163,8 +164,8 @@ class _VerificationScreenState extends State<VerificationScreen> {
 
   Widget _textFieldOTP(
       {bool? first, last, TextEditingController? controllerr}) {
-    return Container(
-      height: MediaQuery.of(context).size.height / 13,
+    return SizedBox(
+      height: MediaQuery.of(context).size.height / 12,
       child: AspectRatio(
         aspectRatio: 0.8,
         child: TextField(
@@ -180,10 +181,12 @@ class _VerificationScreenState extends State<VerificationScreen> {
           },
           showCursor: false,
           textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           keyboardType: TextInputType.number,
           maxLength: 1,
           decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(
+                vertical: MediaQuery.of(context).size.height * 00.015),
             counter: Offstage(),
             enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(width: 2, color: Colors.grey.shade200),

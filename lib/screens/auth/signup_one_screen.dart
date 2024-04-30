@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:mello_chat/screens/auth/signup_second_screen.dart';
 import 'package:mello_chat/widgets/custom_textfield.dart';
 
-class SetupProfile extends StatefulWidget {
-  const SetupProfile({super.key});
+class SignupOneScreen extends StatefulWidget {
+  const SignupOneScreen({super.key});
 
   @override
-  State<SetupProfile> createState() => _SetupProfileState();
+  State<SignupOneScreen> createState() => _SignupOneScreenState();
 }
 
-class _SetupProfileState extends State<SetupProfile> {
+class _SignupOneScreenState extends State<SignupOneScreen> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -37,7 +41,7 @@ class _SetupProfileState extends State<SetupProfile> {
                       ),
                     ),
                     SizedBox(
-                      height: size.height * 0.04,
+                      height: size.height * 0.056,
                     ),
                     Container(
                       height: 150,
@@ -48,7 +52,7 @@ class _SetupProfileState extends State<SetupProfile> {
                             fit: BoxFit.fill,
                           ),
                           borderRadius: BorderRadius.circular(100)),
-                    )
+                    ),
                     // CircleAvatar(
                     //   minRadius: 70,
                     //   backgroundImage: AssetImage(
@@ -59,7 +63,7 @@ class _SetupProfileState extends State<SetupProfile> {
                 ),
               ),
               SizedBox(
-                height: size.height * 00.07,
+                height: size.height * 00.075,
               ),
               Container(
                 // height: size.height / 1.561,
@@ -84,20 +88,35 @@ class _SetupProfileState extends State<SetupProfile> {
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                     ),
                     SizedBox(
-                      height: size.height * 00.03,
+                      height: size.height * 00.028,
                     ),
-                    Text("Name"),
-                    CustomTextFiled(controller: TextEditingController()),
+                    CustomTextFiled(
+                        controller: nameController, inputText: "Name"),
+                    SizedBox(
+                      height: size.height * 00.02,
+                    ),
+                    CustomTextFiled(
+                      controller: emailController,
+                      inputText: "Email",
+                      textType: TextInputType.emailAddress,
+                    ),
+                    SizedBox(
+                      height: size.height * 00.05,
+                    ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           // backgroundColor: Colors.grey.shade50,
                           elevation: 0,
                           minimumSize: const Size(double.infinity, 50),
                           shape: const StadiumBorder()),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const SignupSecondScreen(),
+                        ));
+                      },
                       child: const Text("Continue"),
                     ),
-                    SizedBox(height: size.height * 00.05),
+                    SizedBox(height: size.height * 00.06),
                   ],
                 ),
               ),
