@@ -1,7 +1,7 @@
-import 'dart:ffi';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:mello_chat/screens/calling/call_history/call_history_screen.dart';
+import 'package:mello_chat/screens/chats/chats_screen.dart';
 import 'package:mello_chat/widgets/custom_bottom_nav_bar.dart';
 
 class Dashboard extends StatefulWidget {
@@ -46,34 +46,24 @@ class _DashboardState extends State<Dashboard>
     return SafeArea(
       child: Scaffold(
         body: CustomBottomNavBar(
-          child: TabBarView(
-            controller: tabController,
-            dragStartBehavior: DragStartBehavior.down,
-            physics: BouncingScrollPhysics(),
-            children: [
-              SingleChildScrollView(
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 2,
-                  color: Colors.amber,
-                ),
-              ),
-              Text("Page 2"),
-              Text("Page 3"),
-              Text("Page 4"),
-            ],
-          ),
           currentPage: currentPage,
           tabController: tabController,
-          colors: [
-            Colors.red,
-            Colors.blue,
-            Colors.yellow,
-            Colors.indigo,
-          ],
+          colors: [], // Remove or change this later
           unselectedColor: Colors.grey.shade700,
           barColor: Colors.white,
           end: 10,
           start: 20,
+          child: TabBarView(
+            controller: tabController,
+            dragStartBehavior: DragStartBehavior.down,
+            physics: const BouncingScrollPhysics(),
+            children: [
+              ChatsScreen(),
+              Center(child: Text("Page 2")),
+              CallHistoryScreen(),
+              Center(child: Text("Page 4")),
+            ],
+          ),
         ),
       ),
     );

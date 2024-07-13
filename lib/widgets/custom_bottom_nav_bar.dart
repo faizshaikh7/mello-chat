@@ -1,7 +1,9 @@
 import 'dart:ffi';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mello_chat/services/providers/inherited_data_provider.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
@@ -36,6 +38,7 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar>
   late Animation<Offset> _offsetAnimation;
   bool isScrollingDown = false;
   bool isOnTop = true;
+  final selectedIconColor = Colors.grey.shade300;
 
   @override
   void initState() {
@@ -105,6 +108,8 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar>
     super.dispose();
   }
 
+  // TODO: ADD TEXT LATER BELOW ICONS
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -172,8 +177,8 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar>
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Container(
-                  height: 70,
-                  width: MediaQuery.of(context).size.width * 0.9,
+                  height: 75,
+                  width: MediaQuery.of(context).size.width * 0.93,
                   decoration: BoxDecoration(
                     color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(500),
@@ -181,13 +186,15 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar>
                   child: Material(
                     color: widget.barColor,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 5.0),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 5.0,
+                      ),
                       child: TabBar(
                         indicatorPadding: const EdgeInsets.fromLTRB(6, 0, 6, 0),
                         controller: widget.tabController,
                         indicator: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
-                          color: Colors.grey.shade900,
+                          color: Colors.black,
                         ),
 
                         // indicator: UnderlineTabIndicator(
@@ -209,9 +216,9 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar>
                             width: 40,
                             child: Center(
                                 child: Icon(
-                              Icons.home,
+                              CupertinoIcons.bubble_left,
                               color: widget.currentPage == 0
-                                  ? widget.colors[0]
+                                  ? selectedIconColor
                                   : widget.unselectedColor,
                             )),
                           ),
@@ -220,9 +227,10 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar>
                             width: 40,
                             child: Center(
                                 child: Icon(
-                              Icons.search,
+                              // Icons.,
+                              CupertinoIcons.square_grid_2x2,
                               color: widget.currentPage == 1
-                                  ? widget.colors[1]
+                                  ? selectedIconColor
                                   : widget.unselectedColor,
                             )),
                           ),
@@ -231,9 +239,9 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar>
                             width: 40,
                             child: Center(
                                 child: Icon(
-                              Icons.add,
+                              CupertinoIcons.phone,
                               color: widget.currentPage == 2
-                                  ? widget.colors[2]
+                                  ? selectedIconColor
                                   : widget.unselectedColor,
                             )),
                           ),
@@ -242,9 +250,9 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar>
                             width: 40,
                             child: Center(
                                 child: Icon(
-                              Icons.favorite,
+                              CupertinoIcons.circle_grid_hex,
                               color: widget.currentPage == 3
-                                  ? widget.colors[3]
+                                  ? selectedIconColor
                                   : widget.unselectedColor,
                             )),
                           ),

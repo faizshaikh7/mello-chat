@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mello_chat/screens/chats_screen.dart';
-import 'package:mello_chat/screens/dashboard.dart';
+import 'package:mello_chat/screens/chats/chats_screen.dart';
+import 'package:mello_chat/screens/dashboard/dashboard.dart';
 import 'package:mello_chat/widgets/custom_textfield.dart';
 
 class SignupSecondScreen extends StatefulWidget {

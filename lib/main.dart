@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mello_chat/screens/onboard_screen.dart';
+import 'package:mello_chat/screens/onboard/onboard_screen.dart';
 import 'package:mello_chat/utils/colors.dart';
 
 void main() {
@@ -12,13 +13,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.grey.shade500));
     return MaterialApp(
       title: 'Mello Chat',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: backgroundColor,
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromRGBO(62, 102, 251, 1)),
+        // buttonTheme: ButtonThemeData(colorScheme: ),
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue.shade700),
         textTheme: GoogleFonts.poppinsTextTheme(
           Theme.of(context).textTheme,
         ),
